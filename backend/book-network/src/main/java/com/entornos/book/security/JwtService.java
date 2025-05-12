@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,10 @@ import io.jsonwebtoken.security.Keys;
 @Service
 public class JwtService {
 
+    @Value("${application.security.jwt.expiration}")
     private long jwtExpiration;
+
+    @Value("${application.security.jwt.scret-key}")
     private String secretKey;
 
     public String generateToken(UserDetails userDetails) {
