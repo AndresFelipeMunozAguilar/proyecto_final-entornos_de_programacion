@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.entornos.book.email.EmailService;
 import com.entornos.book.role.RoleRepository;
 import com.entornos.book.token.Token;
 import com.entornos.book.token.TokenRepository;
@@ -23,6 +24,7 @@ public class AuthenticationService {
     private final PasswordEncoder passwordEncoder;
     private final UserRepository userRepository;
     private final TokenRepository tokenRepository;
+    private final EmailService emailService;
 
     public void register(RegistrationRequest regRequest) {
 
@@ -50,6 +52,8 @@ public class AuthenticationService {
 
         var newToken = generateAndSaveValidationToken(user);
 
+        // enviar email
+
     }
 
     private String generateAndSaveValidationToken(User user) {
@@ -74,10 +78,6 @@ public class AuthenticationService {
         StringBuilder codeBuilder = new StringBuilder();
 
         SecureRandom secureRandom = new SecureRandom();
-        for (int i = 0; i < length; i++) {
-            int randomIndex = secureRandom.nextInt(characters.length());
-            codeBuilder.append(characters.charAt(randomIndex));
-        }
 
         for (int i = 0; i < length; i++) {
 
