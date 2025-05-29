@@ -35,3 +35,7 @@ application:
     jwt:
       scret-key: cqD0Ko9fLgQkxIRz7ChtESFiaa7g1iypgxKHN4UNESFiaa7g1i
       expiration: 86400000
+  
+  mailing:
+    frontend:
+      activation-url: http://localhost:4200/activate-account
