@@ -23,6 +23,8 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -68,6 +70,8 @@ public class User implements UserDetails, Principal {
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_roles", // Nombre personalizado de la tabla intermedia
+            joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
     @CreatedDate
