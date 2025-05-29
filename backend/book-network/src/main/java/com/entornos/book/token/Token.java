@@ -23,7 +23,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "token")
+@Table(name = "tokens")
 public class Token {
 
     @Id
