@@ -4,16 +4,19 @@ import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.entornos.book.email.EmailService;
+import com.entornos.book.email.EmailTemplateName;
 import com.entornos.book.role.RoleRepository;
 import com.entornos.book.token.Token;
 import com.entornos.book.token.TokenRepository;
 import com.entornos.book.user.User;
 import com.entornos.book.user.UserRepository;
 
+import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -26,7 +29,10 @@ public class AuthenticationService {
     private final TokenRepository tokenRepository;
     private final EmailService emailService;
 
-    public void register(RegistrationRequest regRequest) {
+    @Value("${application.mailing.frontend.activation-url}")
+    private String activationUrl;
+
+    public void register(RegistrationRequest regRequest) throws MessagingException {
 
         var userRole = roleRepository.findByName("USER")
                 .orElseThrow(() -> new IllegalStateException("User role not initialized"));
@@ -48,11 +54,17 @@ public class AuthenticationService {
 
     }
 
-    private void sendValidationEmail(User user) {
+    private void sendValidationEmail(User user) throws MessagingException {
 
         var newToken = generateAndSaveValidationToken(user);
 
-        // enviar email
+        emailService.sendEmail(
+                user.getEmail(),
+                user.getFullName(),
+                EmailTemplateName.ACTIVATE_ACCOUNT,
+                activationUrl,
+                newToken,
+                "Account Activation - Book Network");
 
     }
 
