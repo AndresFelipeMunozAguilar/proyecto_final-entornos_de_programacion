@@ -131,7 +131,7 @@ public class AuthenticationService {
 
     }
 
-    @Transactional
+    // @Transactional
     public void activateAccount(String token) throws MessagingException {
 
         Token savedToken = tokenRepository.findByToken(token)
