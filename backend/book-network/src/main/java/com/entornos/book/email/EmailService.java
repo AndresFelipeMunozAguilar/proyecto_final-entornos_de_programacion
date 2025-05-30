@@ -57,7 +57,7 @@ public class EmailService {
 
         context.setVariables(properties);
 
-        helper.setFrom("Contac@EntornosUISBook.com");
+        helper.setFrom("Contact@EntornosUISBook.com");
         helper.setTo(to);
         helper.setSubject(subject);
 
