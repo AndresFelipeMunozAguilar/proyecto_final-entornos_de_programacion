@@ -33,12 +33,23 @@ export class LoginComponent {
 
       next: (response) => {
 
-        //save the token
+        // TODO: save the token
         this.router.navigate(['books']);
 
       }, error: (err) => {
 
         console.log(err);
+
+        if (err.error.validationErrors) {
+
+          this.errorMsg = err.error.validationErrors;
+
+        } else {
+
+          this.errorMsg.push(err.error.error);
+
+        }
+
 
       }
 
