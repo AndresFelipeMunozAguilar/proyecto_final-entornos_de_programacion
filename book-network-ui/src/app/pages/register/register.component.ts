@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RegistrationRequest } from '../../services/models';
+import { AuthenticationService } from '../../services/services';
 
 @Component({
   selector: 'app-register',
@@ -16,15 +17,38 @@ export class RegisterComponent {
   errorMsg: Array<string> = [];
 
   constructor(
-    private router: Router
+    private router: Router,
+    private authService: AuthenticationService
   ) { }
 
   register() {
-    throw new Error('Method not implemented.');
+
+    this.errorMsg = [];
+
+    this.authService.register({
+
+      body: this.registerRequest,
+
+    }).subscribe({
+      next: () => {
+
+        this.router.navigate(['activate-account']);
+
+      },
+
+      error: (err) => {
+
+        this.errorMsg = err.error.validationErrors;
+
+
+      }
+
+    });
+
   }
 
   login() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['login']);
   }
 
 }
