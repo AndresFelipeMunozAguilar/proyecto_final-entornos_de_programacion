@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/services';
+import { TokenService } from '../../services/token/token.service';
 
 
 @Component({
@@ -21,8 +22,8 @@ export class LoginComponent {
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService
-    //TODO: inject another service
+    private authService: AuthenticationService,
+    private tokenService: TokenService
   ) { }
 
   login() {
@@ -33,7 +34,7 @@ export class LoginComponent {
 
       next: (response) => {
 
-        // TODO: save the token
+        this.tokenService.token = response.token as string;
         this.router.navigate(['books']);
 
       }, error: (err) => {
