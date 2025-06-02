@@ -37,9 +37,9 @@ import lombok.Setter;
 public class User implements UserDetails, Principal {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_user")
-    private Integer idUser;
+    private Integer id;
 
     @Column(name = "first_name")
     private String firstName;
@@ -82,28 +82,21 @@ public class User implements UserDetails, Principal {
     private LocalDateTime lastModifiedDate;
 
     @Override
-    public String getName() {
-        // Esto, debido a que es el identificador único
-        // del usuario en el sistema.
-        return this.email;
-    }
-
-    @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return this.roles
                 .stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .map(r -> new SimpleGrantedAuthority(r.getName()))
                 .collect(Collectors.toList());
     }
 
     @Override
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return this.email;
+        return email;
     }
 
     @Override
@@ -123,11 +116,19 @@ public class User implements UserDetails, Principal {
 
     @Override
     public boolean isEnabled() {
-        return this.enabled;
+        return enabled;
+    }
+
+    public String fullName() {
+        return getFirstName() + " " + getLastName();
+    }
+
+    @Override
+    public String getName() {
+        return email;
     }
 
     public String getFullName() {
-        return this.firstName + " " + this.lastName;
+        return firstName + " " + lastName;
     }
-
 }

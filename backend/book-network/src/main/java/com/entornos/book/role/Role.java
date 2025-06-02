@@ -36,7 +36,7 @@ public class Role {
     @Id
     @GeneratedValue
     @Column(name = "id_role")
-    private Integer idRole;
+    private Integer id;
 
     @Column(name = "name", unique = true)
     private String name;
