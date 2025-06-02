@@ -24,9 +24,7 @@ import java.time.LocalDateTime;
 public class BaseEntity {
 
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
