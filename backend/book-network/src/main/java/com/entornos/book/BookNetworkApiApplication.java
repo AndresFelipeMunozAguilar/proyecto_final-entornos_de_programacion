@@ -11,7 +11,7 @@ import com.entornos.book.role.Role;
 import com.entornos.book.role.RoleRepository;
 
 @SpringBootApplication
-@EnableJpaAuditing
+@EnableJpaAuditing(auditorAwareRef = "auditorAware")
 @EnableAsync
 public class BookNetworkApiApplication {
 
