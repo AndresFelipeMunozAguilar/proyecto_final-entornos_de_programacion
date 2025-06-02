@@ -18,17 +18,10 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Entity
 public class Feedback extends BaseEntity {
-
+    @Column
     private Double note;
     private String comment;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_feedback")
-    private Integer id;
-
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
-
 }

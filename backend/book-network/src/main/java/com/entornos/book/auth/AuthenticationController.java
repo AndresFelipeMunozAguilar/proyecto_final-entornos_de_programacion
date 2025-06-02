@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+//BIEN MAPEADO
 @RestController
 @RequestMapping("auth")
 @RequiredArgsConstructor
@@ -24,7 +26,7 @@ public class AuthenticationController {
 
     private final AuthenticationService authService;
 
-    @PostMapping("register")
+    @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> register(
             @RequestBody @Valid RegistrationRequest regRequest) throws MessagingException {

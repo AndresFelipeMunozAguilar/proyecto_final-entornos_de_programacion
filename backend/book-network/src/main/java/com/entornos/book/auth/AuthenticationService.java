@@ -25,7 +25,7 @@ import com.entornos.book.user.UserRepository;
 import jakarta.mail.MessagingException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-
+//BIEN MAPEADO
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -145,7 +145,7 @@ public class AuthenticationService {
 
         }
 
-        var user = userRepository.findById(savedToken.getUser().getIdUser())
+        var user = userRepository.findById(savedToken.getUser().getId())
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
 
         user.setEnabled(true);

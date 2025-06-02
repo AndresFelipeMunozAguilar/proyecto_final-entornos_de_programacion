@@ -30,15 +30,9 @@ public class Book extends BaseEntity {
     private boolean archived;
     private boolean shareable;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_book")
-    private Integer id;
-
     @ManyToOne
     @JoinColumn(name = "owner_id")
     private User owner;
-
 
     @OneToMany(mappedBy = "book")
     private List<Feedback> feedbacks;
