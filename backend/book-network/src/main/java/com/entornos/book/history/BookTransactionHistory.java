@@ -23,10 +23,6 @@ import lombok.experimental.SuperBuilder;
 @Entity
 public class BookTransactionHistory extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_book_history")
-    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

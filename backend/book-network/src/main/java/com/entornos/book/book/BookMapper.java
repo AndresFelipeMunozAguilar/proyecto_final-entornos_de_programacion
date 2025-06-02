@@ -1,5 +1,7 @@
 package com.entornos.book.book;
 
+import com.entornos.book.file.FileUtils;
+import com.entornos.book.history.BookTransactionHistory;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -28,9 +30,19 @@ public class BookMapper {
                 .rate(book.getRate())
                 .archived(book.isArchived())
                 .shareable(book.isShareable())
-                .owner(book.getOwner().getFullName())
-                // todo implement this later
-                // .cover()
+                .owner(book.getOwner().fullName())
+                .cover(FileUtils.readFileFromLocation(book.getBookCover()))
+                .build();
+    }
+    public BorrowedBookResponse toBorrowedBookResponse(BookTransactionHistory history) {
+        return BorrowedBookResponse.builder()
+                .id(history.getBook().getId())
+                .title(history.getBook().getTitle())
+                .authorName(history.getBook().getAuthorName())
+                .isbn(history.getBook().getIsbn())
+                .rate(history.getBook().getRate())
+                .returned(history.isReturned())
+                .returnApproved(history.isReturnApproved())
                 .build();
     }
 }

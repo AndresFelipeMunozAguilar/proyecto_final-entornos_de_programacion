@@ -23,7 +23,9 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
 
-
+    @Id
+    @GeneratedValue
+    private Integer id;
 
 
     @CreatedDate
