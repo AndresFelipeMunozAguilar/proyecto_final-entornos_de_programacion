@@ -17,10 +17,10 @@ export class TokenService {
   }
 
 
-  // TODO : IMPLEMENTAR EL JWTHELPETSERVICE PARA QUE FUNCIONE
   isTokenValid() {
 
     const token = this.token;
+
     if (!token) {
 
       return false;
@@ -38,18 +38,17 @@ export class TokenService {
       return false;
 
     }
+
     return true;
 
   }
 
-  // TODO : IMPLEMENTAR EL JWTHELPETSERVICE PARA QUE FUNCIONE
   isTokenNotValid() {
 
     return !this.isTokenValid();
 
   }
 
-  // TODO : IMPLEMENTAR EL JWTHELPETSERVICE PARA QUE FUNCIONE
   get userRoles(): string[] {
 
     const token = this.token;
