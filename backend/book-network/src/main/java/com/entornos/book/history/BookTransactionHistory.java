@@ -1,10 +1,8 @@
 package com.entornos.book.history;
 
-
 import com.entornos.book.book.Book;
 import com.entornos.book.common.BaseEntity;
 import com.entornos.book.user.User;
-import jakarta.persistence.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -14,7 +12,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-
 @Getter
 @Setter
 @SuperBuilder
@@ -22,7 +19,6 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Entity
 public class BookTransactionHistory extends BaseEntity {
-
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -35,10 +31,5 @@ public class BookTransactionHistory extends BaseEntity {
 
     private boolean returned;
     private boolean returnApproved;
-
-
-
-
-
 
 }
