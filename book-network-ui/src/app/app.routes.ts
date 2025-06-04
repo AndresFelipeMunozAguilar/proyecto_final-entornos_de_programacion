@@ -24,10 +24,9 @@ export const routes: Routes = [
         path: 'activate-account',
         component: ActivateAccountComponent
     },
-    // TODO: Crear los componentes de books y activate-account
-    // {
-    //     path: 'books',
-    //     loadChildren: () => import('./modules/book/book.module').then(m => m.BookModule),
-    //     canActivate: [authGuard]
-    // }
+    {
+        path: 'books',
+        loadChildren: () => import('./modules/book/book.module').then(m => m.BookModule),
+        canActivate: [authGuard]
+    }
 ];
