@@ -1,13 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {BookResponse} from '../../../../services/models/book-response';
-import {BookService} from '../../../../services/services/book.service';
-import {ActivatedRoute} from '@angular/router';
-import {FeedbackService} from '../../../../services/services/feedback.service';
-import {PageResponseFeedbackResponse} from '../../../../services/models/page-response-feedback-response';
+import { Component, OnInit } from '@angular/core';
+import { BookResponse } from '../../../../services/models/book-response';
+import { BookService } from '../../../../services/services/book.service';
+import { ActivatedRoute } from '@angular/router';
+import { FeedbackService } from '../../../../services/services/feedback.service';
+import { PageResponseFeedbackResponse } from '../../../../services/models/page-response-feedback-response';
+import { RatingComponent } from '../../components/rating/rating.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-book-details',
   templateUrl: './book-details.component.html',
+  imports: [CommonModule, RatingComponent],
   styleUrls: ['./book-details.component.scss']
 })
 export class BookDetailsComponent implements OnInit {
@@ -61,7 +64,7 @@ export class BookDetailsComponent implements OnInit {
   }
 
   goToPreviousPage() {
-    this.page --;
+    this.page--;
     this.findAllFeedbacks();
   }
 
