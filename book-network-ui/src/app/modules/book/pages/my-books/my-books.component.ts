@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { PageResponseBookResponse } from '../../../../services/models/page-response-book-response';
 import { BookService } from '../../../../services/services/book.service';
 import { BookResponse } from '../../../../services/models/book-response';
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { BookCardComponent } from '../../components/book-card/book-card.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-my-books',
   templateUrl: './my-books.component.html',
-  imports: [CommonModule, BookCardComponent],
+  imports: [CommonModule, BookCardComponent, RouterLink, RouterLinkActive],
   styleUrls: ['./my-books.component.scss']
 })
 export class MyBooksComponent implements OnInit {
