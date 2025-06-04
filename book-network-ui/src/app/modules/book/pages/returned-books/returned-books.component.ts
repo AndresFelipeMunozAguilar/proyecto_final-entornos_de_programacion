@@ -3,11 +3,12 @@ import { PageResponseBorrowedBookResponse } from '../../../../services/models/pa
 import { BookService } from '../../../../services/services/book.service';
 import { BorrowedBookResponse } from '../../../../services/models/borrowed-book-response';
 import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-returned-books',
   templateUrl: './returned-books.component.html',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   styleUrls: ['./returned-books.component.scss']
 })
 export class ReturnedBooksComponent implements OnInit {

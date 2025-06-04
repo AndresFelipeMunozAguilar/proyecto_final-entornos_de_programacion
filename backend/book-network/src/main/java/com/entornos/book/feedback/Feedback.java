@@ -1,6 +1,5 @@
 package com.entornos.book.feedback;
 
-
 import com.entornos.book.book.Book;
 import com.entornos.book.common.BaseEntity;
 import jakarta.persistence.*;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-
 @Getter
 @Setter
 @SuperBuilder
@@ -18,6 +16,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Entity
 public class Feedback extends BaseEntity {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id_feedback")
+    private Integer id;
+
     @Column
     private Double note;
     private String comment;

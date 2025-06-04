@@ -21,6 +21,10 @@ import java.util.List;
 @Entity
 public class Book extends BaseEntity {
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id_book")
+    private Integer id;
 
     private String title;
     private String authorName;
@@ -41,8 +45,8 @@ public class Book extends BaseEntity {
     private List<BookTransactionHistory> histories;
 
     @Transient
-    public double getRate(){
-        if(feedbacks == null || feedbacks.isEmpty()){
+    public double getRate() {
+        if (feedbacks == null || feedbacks.isEmpty()) {
             return 0.0;
         }
         var rate = this.feedbacks.stream()
@@ -55,9 +59,5 @@ public class Book extends BaseEntity {
         return roundedRate;
 
     }
-
-
-
-
 
 }

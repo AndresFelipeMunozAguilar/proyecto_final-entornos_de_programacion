@@ -3,7 +3,11 @@ package com.entornos.book.history;
 import com.entornos.book.book.Book;
 import com.entornos.book.common.BaseEntity;
 import com.entornos.book.user.User;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
@@ -19,6 +23,11 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @Entity
 public class BookTransactionHistory extends BaseEntity {
+
+    @Id
+    @GeneratedValue
+    @Column(name = "id_book_history")
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
