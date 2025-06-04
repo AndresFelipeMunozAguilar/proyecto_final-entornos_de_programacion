@@ -1,12 +1,15 @@
-import {Component, OnInit} from '@angular/core';
-import {BookService} from '../../../../services/services/book.service';
-import {PageResponseBookResponse} from '../../../../services/models/page-response-book-response';
-import {BookResponse} from '../../../../services/models/book-response';
-import {Router} from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from '../../../../services/services/book.service';
+import { PageResponseBookResponse } from '../../../../services/models/page-response-book-response';
+import { BookResponse } from '../../../../services/models/book-response';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { BookCardComponent } from '../../components/book-card/book-card.component';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
+  imports: [CommonModule, BookCardComponent],
   styleUrls: ['./book-list.component.scss']
 })
 export class BookListComponent implements OnInit {
@@ -15,7 +18,7 @@ export class BookListComponent implements OnInit {
   size = 5;
   pages: any = [];
   message = '';
-  level: 'success' |'error' = 'success';
+  level: 'success' | 'error' = 'success';
 
   constructor(
     private bookService: BookService,
@@ -53,7 +56,7 @@ export class BookListComponent implements OnInit {
   }
 
   goToPreviousPage() {
-    this.page --;
+    this.page--;
     this.findAllBooks();
   }
 
