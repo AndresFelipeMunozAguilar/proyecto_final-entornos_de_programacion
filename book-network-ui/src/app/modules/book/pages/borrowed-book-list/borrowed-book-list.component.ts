@@ -1,14 +1,18 @@
-import {Component, OnInit} from '@angular/core';
-import {BookService} from '../../../../services/services/book.service';
-import {PageResponseBorrowedBookResponse} from '../../../../services/models/page-response-borrowed-book-response';
-import {BorrowedBookResponse} from '../../../../services/models/borrowed-book-response';
-import {BookResponse} from '../../../../services/models/book-response';
-import {FeedbackRequest} from '../../../../services/models/feedback-request';
-import {FeedbackService} from '../../../../services/services/feedback.service';
+import { Component, OnInit } from '@angular/core';
+import { BookService } from '../../../../services/services/book.service';
+import { PageResponseBorrowedBookResponse } from '../../../../services/models/page-response-borrowed-book-response';
+import { BorrowedBookResponse } from '../../../../services/models/borrowed-book-response';
+import { BookResponse } from '../../../../services/models/book-response';
+import { FeedbackRequest } from '../../../../services/models/feedback-request';
+import { FeedbackService } from '../../../../services/services/feedback.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { RatingComponent } from '../../components/rating/rating.component';
 
 @Component({
   selector: 'app-borrowed-book-list',
   templateUrl: './borrowed-book-list.component.html',
+  imports: [CommonModule, FormsModule, RatingComponent],
   styleUrls: ['./borrowed-book-list.component.scss']
 })
 export class BorrowedBookListComponent implements OnInit {
@@ -17,7 +21,7 @@ export class BorrowedBookListComponent implements OnInit {
   pages: any = [];
   borrowedBooks: PageResponseBorrowedBookResponse = {};
   selectedBook: BookResponse | undefined = undefined;
-  feedbackRequest: FeedbackRequest = {bookId: 0, comment: '', note: 0};
+  feedbackRequest: FeedbackRequest = { bookId: 0, comment: '', note: 0 };
   constructor(
     private bookService: BookService,
     private feedbackService: FeedbackService
@@ -52,7 +56,7 @@ export class BorrowedBookListComponent implements OnInit {
   }
 
   goToPreviousPage() {
-    this.page --;
+    this.page--;
     this.findAllBorrowedBooks();
   }
 
