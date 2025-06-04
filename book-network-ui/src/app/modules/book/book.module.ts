@@ -8,7 +8,7 @@ import { BookListComponent } from './pages/book-list/book-list.component';
 import { BookCardComponent } from './components/book-card/book-card.component';
 import { MyBooksComponent } from './pages/my-books/my-books.component';
 import { ManageBookComponent } from './pages/manage-book/manage-book.component';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BorrowedBookListComponent } from './pages/borrowed-book-list/borrowed-book-list.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ReturnedBooksComponent } from './pages/returned-books/returned-books.component';
@@ -17,6 +17,12 @@ import { BookDetailsComponent } from './pages/book-details/book-details.componen
 
 @NgModule({
   declarations: [
+
+  ],
+  imports: [
+    CommonModule,
+    BookRoutingModule,
+    FormsModule,
     MainComponent,
     MenuComponent,
     BookListComponent,
@@ -27,11 +33,6 @@ import { BookDetailsComponent } from './pages/book-details/book-details.componen
     RatingComponent,
     ReturnedBooksComponent,
     BookDetailsComponent
-  ],
-  imports: [
-    CommonModule,
-    BookRoutingModule,
-    FormsModule
   ]
 })
 export class BookModule { }
