@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-rating',
   templateUrl: './rating.component.html',
+  imports: [CommonModule],
   styleUrls: ['./rating.component.scss']
 })
 export class RatingComponent {
