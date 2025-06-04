@@ -8,11 +8,12 @@ import { FeedbackService } from '../../../../services/services/feedback.service'
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RatingComponent } from '../../components/rating/rating.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-borrowed-book-list',
   templateUrl: './borrowed-book-list.component.html',
-  imports: [CommonModule, FormsModule, RatingComponent],
+  imports: [CommonModule, FormsModule, RatingComponent, RouterLink],
   styleUrls: ['./borrowed-book-list.component.scss']
 })
 export class BorrowedBookListComponent implements OnInit {
