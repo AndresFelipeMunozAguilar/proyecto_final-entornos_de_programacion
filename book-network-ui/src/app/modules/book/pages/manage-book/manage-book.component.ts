@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { BookRequest } from '../../../../services/models/book-request';
 import { BookService } from '../../../../services/services/book.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-manage-book',
   templateUrl: './manage-book.component.html',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   styleUrls: ['./manage-book.component.scss']
 })
 export class ManageBookComponent implements OnInit {

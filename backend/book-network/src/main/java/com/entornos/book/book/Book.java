@@ -5,6 +5,7 @@ import com.entornos.book.feedback.Feedback;
 import com.entornos.book.history.BookTransactionHistory;
 import com.entornos.book.user.User;
 import jakarta.persistence.*;
+import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 public class Book extends BaseEntity {
-
-    @Id
-    @GeneratedValue
-    @Column(name = "id_book")
-    private Integer id;
 
     private String title;
     private String authorName;
