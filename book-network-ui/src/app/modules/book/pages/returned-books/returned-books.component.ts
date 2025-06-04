@@ -1,11 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {PageResponseBorrowedBookResponse} from '../../../../services/models/page-response-borrowed-book-response';
-import {BookService} from '../../../../services/services/book.service';
-import {BorrowedBookResponse} from '../../../../services/models/borrowed-book-response';
+import { Component, OnInit } from '@angular/core';
+import { PageResponseBorrowedBookResponse } from '../../../../services/models/page-response-borrowed-book-response';
+import { BookService } from '../../../../services/services/book.service';
+import { BorrowedBookResponse } from '../../../../services/models/borrowed-book-response';
+import { CommonModule } from '@angular/common'
 
 @Component({
   selector: 'app-returned-books',
   templateUrl: './returned-books.component.html',
+  imports: [CommonModule],
   styleUrls: ['./returned-books.component.scss']
 })
 export class ReturnedBooksComponent implements OnInit {
@@ -15,7 +17,7 @@ export class ReturnedBooksComponent implements OnInit {
   pages: any = [];
   returnedBooks: PageResponseBorrowedBookResponse = {};
   message = '';
-  level: 'success' |'error' = 'success';
+  level: 'success' | 'error' = 'success';
   constructor(
     private bookService: BookService
   ) {
@@ -50,7 +52,7 @@ export class ReturnedBooksComponent implements OnInit {
   }
 
   goToPreviousPage() {
-    this.page --;
+    this.page--;
     this.findAllReturnedBooks();
   }
 
