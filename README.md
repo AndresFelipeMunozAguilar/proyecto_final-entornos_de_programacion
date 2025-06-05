@@ -27,14 +27,26 @@ La aplicación se desarrolla como una arquitectura de microservicios, es decir, 
 
 ### Backend:
 - **Spring Boot (Java)**: Para el desarrollo de la API RESTful y la lógica del servidor.
+- **Spring Security**: Para la autenticación y autorización
 - **Keycloak**: Para la autenticación y autorización de usuarios.
+- **Spring Data JPA**: Capa de acceso de datos
+
+### Database:
+- **PostgreSQL**: Base de datos
+- **Supabase**: Host de la base de datos
 
 ### Frontend:
 - **Angular (TypeScript)**: Para construir la interfaz de usuario dinámica e interactiva.
 - **HTML/CSS**: Para la estructura y el diseño de la interfaz.
+- **TypeScript**
+- **BootStrap**
+- **JWT Angular**: Para la autenticación
 
 ### Otros:
 - **Docker**: Para la contenerización y despliegue de los componentes de la aplicación.
+- **Maven**
+- **OpenApi**
+- **npm**
 
 ## Características de la Aplicación (Resumen)
 
