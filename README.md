@@ -71,3 +71,16 @@ El frontend, construido con Angular, se enfoca en:
 ## Meta de la Aplicación
 
 La meta principal del proyecto "Book Social Network" es crear una plataforma social funcional, que conecte a los amantes de la lectura. Además, el proyecto es una excelente exposición de construcción de aplicaciones web y uso de tecnologías modernas como Spring Boot, Angular y Docker, que demuestra las ventajas de la arquitectura de microservicios y el despliegue en contenedores.
+
+## Arquitectura de la aplicación
+
+![Diagrama](uploads/users/arquitectura.png)
+
+
+## Arquitectura del Frontend
+
+![Frontend](uploads/users/angular.png)
+
+## Arquitectura del Backend
+
+![Backend](uploads/users/backend.png)
